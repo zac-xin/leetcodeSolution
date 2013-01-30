@@ -36,9 +36,12 @@ public class MedianOfTwoSortedArray {
         int j = n - i - 1;
 
         /*
-         * j can not be zero and its range is [n/2, n-1](roughly) so we only
-         * need to consider j = n-1; i might be zero, so we need to consider i
-         * == 0;
+         * i could be be (n-1) when left = right = n - 1
+         * this is the max of i
+         * so min of j is n - (n-1) - 1 = 1;
+         * Thus we don't need to worry about j == 0;
+         * 
+         * i might be zero, so we need to consider i == 0; and j == n-1
          */
 
         if (a[i] >= b[j] && (j == n - 1 || a[i] <= b[j + 1])) {
